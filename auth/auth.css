@@ -28,6 +28,25 @@ header h1 {
     margin: 0;
 }
 
+nav a {
+    display: inline-block;
+    background-color: #0056b3;
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+nav a:hover {
+    background-color: #003366;
+    color: #f0f8ff;
+    text-decoration: none;
+}
+
 main {
     flex: 1;
     display: flex;
