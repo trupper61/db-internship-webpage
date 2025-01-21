@@ -1,5 +1,9 @@
+import { sys } from "../main.js";
+import User from "../class/user.js";
+
 // register.js
 
+const nameInput = document.getElementById('name');
 const registerForm = document.getElementById('registerForm');
 const emailInput = document.getElementById('email');
 const passwordInput = document.getElementById('password');
@@ -12,6 +16,7 @@ registerForm.addEventListener('submit', function(e){
     errorMessage.style.display = 'none';
     errorMessage.textContent = '';
 
+    const name = nameInput.value.trim();
     const email = emailInput.value.trim();
     const password = passwordInput.value.trim();
     const confirmPassword = confirmPasswordInput.value.trim();
@@ -27,6 +32,8 @@ registerForm.addEventListener('submit', function(e){
         errorMessage.style.display = 'block';
         return;
     }
+
+    sys.addUser(new User(name, email, password, "0"));
     console.log('Registrierungs Daten: ', { email, password });
 
     alert('Registrierung erfolgreich!');

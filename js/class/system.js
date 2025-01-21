@@ -1,7 +1,8 @@
 class System{
     constructor(){
-        this.users = new [];
-        this.products = new [];
+        this.users = [];
+        this.products = [];
+        this.activeUser = null;
     }
     deleteUser(user){
         this.users.pop(user);

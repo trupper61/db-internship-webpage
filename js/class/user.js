@@ -30,5 +30,4 @@ class User{
         product.owner = this;
     }
 }
-
 export default User;
