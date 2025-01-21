@@ -16,11 +16,55 @@ body {
     flex-direction: column;
 }
 
-header {
+nav {
     background-color: #003366;
     color: white;
     padding: 1rem;
-    text-align: center;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#comp-name {
+    padding: 1rem;
+    font-size:2rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+#nav-items{
+    font-size: larger;
+    list-style: none;
+    margin-left: 1rem;
+    display: flex;
+}
+
+.nav-item{
+    padding: 1.5rem;
+    margin-left: 0.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+#profile-item{
+    margin-left: auto;
+    align-self: center;
+    justify-content: center;
+    margin-right: 2rem;
+    color: white;
+}
+
+.nav-item a{
+    color: white;
+}
+
+.nav-item:current{
+    background-color: #012952;
+}
+
+.nav-item:hover{
+    background-color: #03478a;
 }
 
 main {
@@ -40,7 +84,7 @@ footer {
     margin-top: auto;
 }
 
-button, a {
+main button, main a {
     color: white;
     background-color: #007BFF;
     border: none;
@@ -52,7 +96,7 @@ button, a {
     display: inline-block;
 }
 
-button:hover, a:hover{
+main button:hover, main a:hover{
     background-color: #0056b3;
 }
 
