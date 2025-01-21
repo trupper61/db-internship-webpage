@@ -1,4 +1,4 @@
-import User from "./user.js";
+const User = require('./user.js');
 
 class Admin extends User {
     constructor(name, email, password, balance = 0){
@@ -12,4 +12,4 @@ class Admin extends User {
     }
 }
 
-export default Admin;
+module.exports = Admin;

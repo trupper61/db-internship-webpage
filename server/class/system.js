@@ -1,13 +1,11 @@
-import User from "./user.js";
-import Product from "./product.js";
-
 class System{
     constructor(){
-        this.users = new [];
-        this.products = new [];
+        this.users = loadData();
+        this.products = [];
     }
     addUser(user){
         this.users.push(user);
+        saveData(this.users)
         console.log('Benutzer "${user.name}" wurde dem System hinzugefügt');
     }
     addProduct(product){
@@ -23,4 +21,4 @@ class System{
     }
 }
 
-export default System;
+module.exports = System;
