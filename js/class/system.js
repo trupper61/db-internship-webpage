@@ -1,23 +1,25 @@
+import User from "./user.js";
+import Product from "./product.js";
+
 class System{
     constructor(){
         this.users = new [];
         this.products = new [];
     }
-    deleteUser(user){
-        this.users.pop(user);
-        console.log(user, "has been deleted from the System.");
-    }
     addUser(user){
         this.users.push(user);
-        console.log(user, "has been added to the System.");
+        console.log('Benutzer "${user.name}" wurde dem System hinzugefügt');
     }
     addProduct(product){
         this.products.push(product);
-        console.log(product, "has been added.");
+        console.log('Produkt "${product.name}" wurde dem System hinzugefügt');
     }
     deleteProduct(product){
-        this.products.pop(product);
-        console.log(product, "has been deleted.")
+        this.products = this.products.filter(p => p !== product);
+        console.log('Produkt "${product.name}" wurde gelöscht');
+    }
+    getUserByEmail(email){
+        return this.users.find(user => user.email === email);
     }
 }
 

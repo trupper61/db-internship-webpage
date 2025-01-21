@@ -1,8 +1,7 @@
 class User{
     static idCounter = 0;
     constructor(name, email, password, balance){  
-        this.id = this.idCounter;
-        this.idCounter++;
+        this.id = User.idCounter++;
         
         this.name = name;
         this.email = email;
@@ -11,21 +10,24 @@ class User{
         this.products = [];
     }
     BuyProduct(product){
-        if(this.balance <= product.price){
-            this.balance -= product.price;
-            product.owner.balance += product.price;
-            product.owner.RemoveProduct(product)
-            this.AddProduct(product);       
+        if (this.balance < product.price) {
+            throw new Error("Benutzer verfügt nicht über die benötigte Liquidität!");
         }
-        else {
-            throw console.error("Benutzer verfügt nicht die benötigte Liquidität!");
-        }     
+
+        if (product.owner === this) {
+            throw new Error("Du kannst dein eigenes Produkt nicht kaufen");
+        }
+        this.balance -= product.price;
+        product.owner.balance += product.price;
+        product.owner.removeProduct(product);
+        this.addProduct(product);
+        console.log('Produkt "${product.name}" wurde erflogreich gekauft.');
     }
-    RemoveProduct(product){
-        this.products.pop(product);
+    removeProduct(product){
+        this.products = this.products.filter(p => p !== product);
         product.owner = null;
     }
-    AddProduct(product){
+    addProduct(product){
         this.products.push(product);
         product.owner = this;
     }
