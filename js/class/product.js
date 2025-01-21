@@ -6,3 +6,5 @@ class Product{
         this.describtion = describtion;
     }
 }
+
+export default Product;

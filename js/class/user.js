@@ -1,8 +1,9 @@
-class user{
+class User{
     static idCounter = 0;
     constructor(name, email, password, balance){  
         this.id = this.idCounter;
         this.idCounter++;
+        
         this.name = name;
         this.email = email;
         this.password = password;
@@ -29,3 +30,5 @@ class user{
         product.owner = this;
     }
 }
+
+export default User;
