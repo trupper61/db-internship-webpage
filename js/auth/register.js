@@ -1,5 +1,6 @@
 import { sys } from "../main.js";
 import User from "../class/user.js";
+import System from "../class/system.js";
 
 // register.js
 
@@ -34,7 +35,7 @@ registerForm.addEventListener('submit', function(e){
     }
 
     sys.addUser(new User(name, email, password, "0"));
-    console.log('Registrierungs Daten: ', { email, password });
+
 
     alert('Registrierung erfolgreich!');
 });

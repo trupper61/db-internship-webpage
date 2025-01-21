@@ -1,3 +1,4 @@
+import System from "../class/system.js";
 import { sys } from "../main.js";
 
 // login.js
