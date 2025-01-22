@@ -27,7 +27,10 @@ registerForm.addEventListener('submit', function(e){
         errorMessage.style.display = 'block';
         return;
     }
-    console.log('Registrierungs Daten: ', { email, password });
 
-    alert('Registrierung erfolgreich!');
+    const user = {
+        name: name,
+        email: email,
+        password: password
+    };
 });

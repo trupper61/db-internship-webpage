@@ -8,7 +8,4 @@ loginForm.addEventListener('submit', function(e){
 
     const email = emailInput.value.trim();
     const password = passwordInput.value.trim();
-
-    console.log('Login Daten:', { email, password});
-    alert('Login erfolgreich');
 });
