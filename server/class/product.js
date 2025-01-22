@@ -10,4 +10,4 @@ class Product {
     }
 }
 
-export default Storage;
+export default Product;
