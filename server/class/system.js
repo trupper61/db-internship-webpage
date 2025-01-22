@@ -1,12 +1,14 @@
+import Storage from '../storage.js';
+
 class System{
     constructor(){
-        this.users = loadData();
+        this.users = [];
         this.products = [];
     }
     addUser(user){
         this.users.push(user);
-        saveData(this.users)
-        console.log('Benutzer "${user.name}" wurde dem System hinzugefügt');
+        Storage.saveObjToJson(this.users);
+        //console.log('Benutzer "${user.name}" wurde dem System hinzugefügt');
     }
     addProduct(product){
         this.products.push(product);
@@ -21,4 +23,4 @@ class System{
     }
 }
 
-module.exports = System;
+export default System;
