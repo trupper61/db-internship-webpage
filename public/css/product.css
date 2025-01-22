@@ -6,9 +6,9 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.6;
+    color: #333;
     background-color: #e6f0ff;
-    color:#333;
+    line-height: 1.6;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -22,6 +22,13 @@ nav {
     align-items: center;
 }
 
+#product a{
+    background-color: #010f45;
+}
+#product a:hover {
+    background-color: #03478a;
+}
+
 #comp-name {
     font-size: 1,8rem;
     font-weight: bold;
@@ -32,13 +39,6 @@ nav {
     display: flex;
     list-style: none;
     list-style: none;
-}
-
-#home a{
-    background-color: #010f45;
-}
-#home a:hover {
-    background-color: #03478a;
 }
 
 .nav-item a{
@@ -67,39 +67,29 @@ nav {
     background-color: #03478a;
 }
 
-main {
-    flex: 1;
-    padding: 2rem;
-    text-align: center;
+#container {
+    display: flex;
+    flex-wrap: wrap;
 }
 
-main h2{
-    margin-bottom: 1rem;
-    font-size: 2rem;
-    color: #003366;
-}
-
-main p {
-    margin-bottom: 1.5rem;
-    font-size: 1rem;
-    color: #555;
-}
-
-main button, main a {
-    color: white;
-    background-color: #007BFF;
-    display: inline-block;
-    border: none;
-    padding: 0.8rem 1.5rem;
-    margin: 1rem 0.5rem;
+.item {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    border: 1px solid #333;
+    background-color: white;
     border-radius: 5px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    align-items: center;
+    width: 200px;
+    transition: box-shadow 0.4s ease;   
 }
 
-main button:hover, main a:hover{
-    background-color: #0056b3;
+.item:hover {    
+    box-shadow: 1px 4px 5px rgb(8, 91, 179, 0.7);
+}
+
+.item p {
+    margin: 0.5rem;
 }
 
 footer {
