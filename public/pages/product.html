@@ -18,6 +18,20 @@
         <a href="#Profile" id="profile-item">Profil</a>
     </nav>
     <main>
+        <form id="product-upload-form">
+            <h2>Produkt Hochladen</h2>
+            <label for="product-name">Produktname:</label>
+            <input type="text" id="product-name" placeholder="Produktname" required>
+            <br>
+            <label for="product-price">Preis:</label>
+            <input type="number" id="product-price" placeholder="Preis" required>
+            <br>
+            <label for="product-description">Beschreibung:</label>
+            <textarea id="product-description" placeholder="Beschreibung des Produkts" maxlength="50"></textarea>
+            <br>
+            <button id="upload-product" type="submit">Produkt hochladen</button>
+
+        </form>
         <div id="container">
             <!-- products.. -->
         </div>
