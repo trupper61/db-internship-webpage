@@ -13,12 +13,16 @@ updateProfile();
 function updateProfile() {
     const profileLink = document.getElementById('profile-item');
     const loggedInUser = sys.activeUser;
-
+    const balanceElement = document.getElementById('user-balance');
     if (loggedInUser) {
-        profileLink.textContent = `${loggedInUser}'s Profil`;
+        const user = sys.users.find(u => u.email === loggedInUser);
+        profileLink.textContent = `${user.name}'s Profil`;
+        balanceElement.textContent = `Guthaben: ${user.balance}€`;
+        balanceElement.style.display = 'inline-block';
     } else {
         profileLink.textContent = 'Anmelden';
         profileLink.href = './public/pages/login.html';
+        balanceElement.style.display = 'none';
     }
 }
 console.log(sys.getUsers());
@@ -37,10 +41,10 @@ function initialize() {
         sys.addUser(usera);
         sys.addUser(userb);
 
-        sys.addProduct(new Product('Laptop', 999, usera.name, 'Very handy gadget'));
-        sys.addProduct(new Product('Stuhl', 3299, usera.name, 'Ein veehrtes Heilligtum'));
-        sys.addProduct(new Product('Tisch', 421, userb.name, 'Am praktischsten mit vier Beinen'));
-        sys.addProduct(new Product('Fernseher', 9320, userb.name, 'Crazy 16k Bildschirm, benötigt neuste Grafikkarte'));
+        sys.addProduct(new Product('Laptop', 999, usera.email, 'Very handy gadget'));
+        sys.addProduct(new Product('Stuhl', 3299, usera.email, 'Ein veehrtes Heilligtum'));
+        sys.addProduct(new Product('Tisch', 421, userb.email, 'Am praktischsten mit vier Beinen'));
+        sys.addProduct(new Product('Fernseher', 9320, userb.email, 'Crazy 16k Bildschirm, benötigt neuste Grafikkarte'));
 
         console.log('Standard-User generiert');
     }

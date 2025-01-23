@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/profile.css">
     <script type="module" src="../js/profile.js"></script>
 </head>
 <body>
@@ -15,11 +15,21 @@
             <li class="nav-item"><a href="./product.html">Produkte</a></li>
             <li class="nav-item"><a href="#Kontakt">Kontakt</a></li>
         </ul>
+        <p id="user-balance" style="margin-right: 1rem;"></p>
         <a href="../../index.html" id="profile-item">Abmelden</a>
     </nav>
     <main>
-        <section>Willkomen im Profilbereich</section>
-        <p id="username"></p>
+        <h2>Profil</h2>
+        <div id="profile-details">
+            <p>Email: <span id="profile-email"></span></p>
+            <p>Name: <span id="profile-name"></span></p>
+            <h3>Guthaben aufladen</h3>
+            <form id="add-balance-form">
+                <label for="balance-input">Betrag (€):</label>
+                <input type="number" id="balance-input" min="1" step="1" placeholder="Betrag eingeben" required>
+                <button type="submit">Aufladen</button>
+            </form>
+        </div>
     </main>
 </body>
 </html>

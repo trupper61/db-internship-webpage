@@ -13,9 +13,25 @@ const buyProductBtn = document.getElementById('buy-product');
 
 const sys = new System();
 
+function updateProfile() {
+    const profileLink = document.getElementById('profile-item');
+    const loggedInUser = sys.activeUser;
+    const balanceElement = document.getElementById('user-balance');
+    if (loggedInUser) {
+        const user = sys.users.find(u => u.email === loggedInUser);
+        profileLink.textContent = `${user.name}'s Profil`;
+        balanceElement.textContent = `Guthaben: ${user.balance}€`;
+        balanceElement.style.display = 'inline-block';
+    } else {
+        profileLink.textContent = 'Anmelden';
+        profileLink.href = './login.html';
+        balanceElement.style.display = 'none';
+    }
+}
 
 function displayProducts() {
     container.innerHTML = '';
+    updateProfile();
     for (const product of sys.products){
         let div = document.createElement('div');
         div.className = 'item';
@@ -24,7 +40,11 @@ function displayProducts() {
         div.innerHTML += `<p>Besitzer: ${product.owner}</p>`;
         div.innerHTML += `<p class="description">${product.description}`;
         div.addEventListener('click', function() {
-            showProductDetails(product);
+            if (product){
+                showProductDetails(product);
+            } else {
+                console.error("Das Produkt ist undefiniert");
+            }
         });
         container.appendChild(div);
     }
@@ -58,13 +78,16 @@ buyProductBtn.addEventListener('click', function() {
         return;
     }
     const productId = overlay.getAttribute('data-product-id');
-    const product = sys.products.find(p => p.id == productId);
+    //const selectedProduct = sys.products.find(p => p.id == productId);
 
     try {
+        sys.buyProduct(productId);
         overlay.style.display = 'none';
     } catch (error) {
+        console.log("Help")
         alert(error.message);
     }
+    displayProducts();
 });
 
 function showProductDetails(product) {
