@@ -13,8 +13,8 @@ for (var i = 0; i < array.length; i++){
     let div = document.createElement('div');
     div.className = 'item';
     div.innerHTML += `<h2>${array[i].name}</h2>`;
-    div.innerHTML += `<p>Preis: ${array[i].price}€</p>`;
-    div.innerHTML += `<p>Besitzer: ${array[i].owner}</p>`;
-    div.innerHTML += `<p>${array[i].description}`;
+    div.innerHTML += `<p class="price">Preis: ${array[i].price}€</p>`;
+    div.innerHTML += `<p>Besitzer: ${array[i].owner ? array[i].owner.name : 'Kein Besitzer'}</p>`;
+    div.innerHTML += `<p class="description">${array[i].description}`;
     container.appendChild(div);
 }

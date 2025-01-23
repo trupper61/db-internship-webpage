@@ -88,8 +88,25 @@ nav {
     box-shadow: 1px 4px 5px rgb(8, 91, 179, 0.7);
 }
 
+.item h2 {
+    color: #003366;
+    margin-top: 1rem;
+    text-align: center;
+}
+
 .item p {
     margin: 0.5rem;
+    text-align: center;
+}
+
+.item .price {
+    color: #008000;
+    font-weight: bold;
+}
+
+.item .description {
+    font-size: 0.9rem;
+    color: #666;
 }
 
 footer {
