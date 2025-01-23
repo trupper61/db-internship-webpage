@@ -2,13 +2,13 @@ import Storage from '../storage.js';
 
 class System{
     constructor(){
-        this.users = Storage.loadJsonToObj();
+        this.users = Storage.loadJsonToObj('user-items');
         this.products = [];
         this.activeUser = null;
     }
     addUser(user){
        this.users.push(user);
-        Storage.saveObjToJson(this.users);
+        Storage.saveObjToJson('user-items',this.users);
         //console.log('Benutzer "${user.name}" wurde dem System hinzugefügt');
     }
     addProduct(product){
@@ -20,10 +20,10 @@ class System{
         console.log('Produkt "${product.name}" wurde gelöscht');
     }
     getUsers(){
-        return Storage.loadJsonToObj();
+        return Storage.loadJsonToObj('user-items');
     }
     loadUsers() {
-        this.users = Storage.loadJsonToObj();
+        this.users = Storage.loadJsonToObj('user-items');
     }
 }
 

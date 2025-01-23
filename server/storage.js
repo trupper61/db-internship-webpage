@@ -1,11 +1,10 @@
 class Storage {
-    static saveObjToJson(myObj){
-        const data = JSON.stringify(myObj);
-        localStorage.setItem('user-items', data);
-        console.log(data);
+    static saveObjToJson(key, Obj){
+        const data = JSON.stringify(Obj);
+        localStorage.setItem(key, data);
     }
-    static loadJsonToObj (){
-        const data = localStorage.getItem('user-items');
+    static loadJsonToObj(key){
+        const data = localStorage.getItem(key);
         if (typeof data !== 'undefined' && data !== null){
             console.log(data);
             return JSON.parse(data);
@@ -13,6 +12,14 @@ class Storage {
         else {
             return [];
         }
+    }
+    static getNextId(key) {
+        const currentId = parseInt(localStorage.getItem(key) || '0', 10);
+        localStorage.setItem(key, (currentId + 1).toString());
+        return currentId;
+    }
+    static resetIds(key) {
+        localStorage.setItem(key, '0');
     }
 }
 

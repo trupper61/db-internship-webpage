@@ -8,12 +8,12 @@ import Storage from '../../server/storage.js';
 let sys = new System;
 initialize();
 
-console.log(Storage.loadJsonToObj());
+console.log(sys.getUsers());
 
 function initialize() {
     if (sys.getUsers().length === 0) {
         console.log('Keine Benutzer');
-        localStorage.setItem('user-id-counter', '0');
+        Storage.resetIds('user-id');
 
         const admin = new Admin('Admin', 'admin@localhost', 'admin123', 1000);
         sys.addUser(admin);
@@ -34,6 +34,7 @@ function resetStorage() {
     console.log('Storage Resettet');
     sys.loadUsers();
     initialize();
+    console.log(sys.getUsers());
 }
 
 window.resetStorage = resetStorage;
