@@ -7,6 +7,10 @@ const productNameInput = document.getElementById('product-name');
 const productPriceInput = document.getElementById('product-price');
 const productDescriptionInput = document.getElementById('product-description');
 
+const overlay = document.getElementById('product-detail-overlay');
+const closeDetailButton = document.getElementById('close-detail');
+const buyProductBtn = document.getElementById('buy-product');
+
 const sys = new System();
 
 
@@ -19,6 +23,9 @@ function displayProducts() {
         div.innerHTML += `<p class="price">Preis: ${product.price}€</p>`;
         div.innerHTML += `<p>Besitzer: ${product.owner}</p>`;
         div.innerHTML += `<p class="description">${product.description}`;
+        div.addEventListener('click', function() {
+            showProductDetails(product);
+        });
         container.appendChild(div);
     }
 }
@@ -40,5 +47,35 @@ uploadForm.addEventListener('submit', function(event) {
     productPriceInput.value = '';
     productDescriptionInput.value = '';
 });
+
+closeDetailButton.addEventListener('click', function() {
+    overlay.style.display = 'none';
+});
+
+buyProductBtn.addEventListener('click', function() {
+    if (!sys.activeUser) {
+        alert("Log dich ein, um ein Produkt zu kaufen.");
+        return;
+    }
+    const productId = overlay.getAttribute('data-product-id');
+    const product = sys.products.find(p => p.id == productId);
+
+    try {
+        overlay.style.display = 'none';
+    } catch (error) {
+        alert(error.message);
+    }
+});
+
+function showProductDetails(product) {
+    console.log(product);
+    document.getElementById('detail-product-name').textContent = product.name;
+    document.getElementById('detail-product-price').textContent = `Preis: ${product.price}€`;
+    document.getElementById('detail-product-owner').textContent = `Besitzer: ${product.owner}`;
+    document.getElementById('detail-product-description').textContent = product.description;
+
+    overlay.setAttribute('data-product-id', product.id);
+    overlay.style.display = 'flex';
+}
 
 displayProducts();
