@@ -1,3 +1,6 @@
+import User from "./class/user.js";
+import Product from "./class/product.js";
+
 class Storage {
     static saveObjToJson(key, Obj){
         const data = JSON.stringify(Obj);
@@ -20,6 +23,9 @@ class Storage {
     }
     static resetIds(key) {
         localStorage.setItem(key, '0');
+    }
+    static resetStorage() {
+        localStorage.clear();
     }
 }
 

@@ -7,7 +7,6 @@ class User{
         this.email = email;
         this.password = password;
         this.balance = balance;
-        this.products = [];
     }
     BuyProduct(product){
         if (this.balance < product.price) {
@@ -22,14 +21,6 @@ class User{
         product.owner.removeProduct(product);
         this.addProduct(product);
         console.log('Produkt "${product.name}" wurde erflogreich gekauft.');
-    }
-    removeProduct(product){
-        this.products = this.products.filter(p => p !== product);
-        product.owner = null;
-    }
-    addProduct(product){
-        this.products.push(product);
-        product.owner = this;
     }
 }
 

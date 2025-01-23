@@ -15,7 +15,7 @@ loginForm.addEventListener('submit', function(e){
     for (const user of sys.getUsers()) {
         if (user.email === email && user.password === password) {
             alert(`Login erfolgreich: Willkommen, ${user.name}!`);
-            sys.activeUser = user;
+            sys.setActiveUser(user.name);
             window.location.href = '../../index.html';
             return;
         }

@@ -1,12 +1,16 @@
+import Storage from "../storage.js";
+import User from "./user.js";
+
 class Product {
-    constructor(name, price, owner, description = ""){
+    constructor(name, price, ownerName, description = ""){
+        this.id = Storage.getNextId('product-id');
         this.name = name;
         this.price = price;
-        this.owner = owner;
+        this.owner = ownerName;
         this.description = description;
-        if (owner) {
-            owner.addProduct(this);
-        }
+    }
+    assignOwner(owner) {
+        this.owner = owner.name;
     }
 }
 
