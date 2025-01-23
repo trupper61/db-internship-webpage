@@ -11,6 +11,8 @@ const overlay = document.getElementById('product-detail-overlay');
 const closeDetailButton = document.getElementById('close-detail');
 const buyProductBtn = document.getElementById('buy-product');
 
+const showFormButton = document.getElementById('show-upload-form');
+
 const sys = new System();
 
 function updateProfile() {
@@ -49,6 +51,16 @@ function displayProducts() {
         container.appendChild(div);
     }
 }
+
+showFormButton.addEventListener('click', function() {
+    if (uploadForm.style.display === 'none' || uploadForm.style.display === '') {
+        uploadForm.style.display = 'flex';
+        showFormButton.textContent = 'Formular schließen';
+    } else {
+        uploadForm.style.display = 'none';
+        showFormButton.textContent = 'Produkt hochladen';
+    }
+});
 
 uploadForm.addEventListener('submit', function(event) {
     event.preventDefault();
