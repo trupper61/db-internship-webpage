@@ -4,8 +4,6 @@ import System from "../../server/class/system.js";
 
 let sys = new System();
 
-sys.users.push(window.localStorage.getItem('user-items'));
-
 const registerForm = document.getElementById('registerForm');
 const nameInput = document.getElementById('name');
 const emailInput = document.getElementById('email');
@@ -35,14 +33,23 @@ registerForm.addEventListener('submit', function(e){
         errorMessage.style.display = 'block';
         return;
     }
+
+    
+    if (sys.users.some(user => user.email === email)) {
+        errorMessage.textContent = 'Ein Benutzer mit dieser E-Mail-Adresse existiert bereits.';
+        errorMessage.style.display = 'block';
+        return;
+    }
+
     try {
-        console.log(sys.getUsers());
         sys.addUser(new User(name, email, password));
     } catch (error) {
-        alert("Registrierung fehlgeschlagen. Siehe log");
+        errorMessage.textContent = `Registrierung fehlgeschlagen: ${error.message}`;
+        errorMessage.style.display = 'block';
         console.log(error);
         return;
     }
     alert("Registrierung erfolgreich")
+    registerForm.reset();
     window.location.href = './login.html';  
 });

@@ -1,8 +1,6 @@
 class User{
-    static idCounter = 0;
-    constructor(name, email, password, balance){  
-        this.id = User.idCounter++;
-        
+    constructor(name, email, password, balance = 0){  
+        this.id = User.generateId();
         this.name = name;
         this.email = email;
         this.password = password;
@@ -30,6 +28,11 @@ class User{
     addProduct(product){
         this.products.push(product);
         product.owner = this;
+    }
+    static generateId() {
+        let currentId  = parseInt(localStorage.getItem('user-id-counter') || '0', 10);
+        localStorage.setItem('user-id-counter', currentId + 1);
+        return currentId;
     }
 }
 

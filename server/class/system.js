@@ -2,7 +2,7 @@ import Storage from '../storage.js';
 
 class System{
     constructor(){
-        this.users = [];
+        this.users = Storage.loadJsonToObj();
         this.products = [];
         this.activeUser = null;
     }
