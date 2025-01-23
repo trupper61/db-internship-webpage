@@ -115,6 +115,8 @@ main {
     text-align: right;
     font-style: italic;
     margin-top: 0.5rem;
+    color: #333;
+    background-color: #daecec;
 }
 
 main h2{

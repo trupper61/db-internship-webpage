@@ -17,7 +17,7 @@ function displayProfile() {
         if (user) {
             profileEmail.textContent = user.email;
             profileName.textContent = user.name;
-            profileBalance.textContent = user.balance;
+            profileBalance.textContent = user.balance + "€";
     
             const profileLink = document.getElementById('profile-item');
             profileLink.addEventListener('click', function () {
@@ -26,7 +26,23 @@ function displayProfile() {
             });
         }
     }
-    
+}
+
+function displayPurchasedProducts() {
+    const user = sys.users.find(u => u.email === sys.activeUser);
+    const purchasedList = document.getElementById('purchased-list');
+
+    purchasedList.innerHTML = '';
+    if (user && user.products.length > 0) {
+        for (const product of user.products) {
+            const li = document.createElement('li');
+            li.className = 'product-item';
+            li.textContent += `${product.name}: ${product.description}`;
+            purchasedList.appendChild(li);
+        }
+    } else {
+        purchasedList.innerHTML = '<li>Keine gekauften Produkte.</li>';
+    }
 }
 
 addBalanceForm.addEventListener('submit', function(event) {
@@ -45,3 +61,4 @@ addBalanceForm.addEventListener('submit', function(event) {
 })
 
 displayProfile();
+displayPurchasedProducts();

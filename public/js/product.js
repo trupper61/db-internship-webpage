@@ -90,7 +90,6 @@ buyProductBtn.addEventListener('click', function() {
         return;
     }
     const productId = overlay.getAttribute('data-product-id');
-    //const selectedProduct = sys.products.find(p => p.id == productId);
 
     try {
         sys.buyProduct(productId);

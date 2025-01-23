@@ -67,11 +67,12 @@ class System{
             alert("Log dich ein, um Produkte zu kaufen.");
             return;
         }
-        const product = this.products.find(p => p.id.toString() === productId);
-        if(!product) {
+        const productIndex = this.products.findIndex(p => p.id === parseInt(productId));
+        if(productIndex === -1) {
             alert("Produkt nicht gefunden");
             return;
         }
+        const product = this.products[productIndex];
         if (product.owner === this.activeUser) {
             alert("Du kannst dein eigenes Produkt nicht kaufen");
             return;
@@ -86,6 +87,12 @@ class System{
         oldOwner.balance += product.price;
 
         product.owner = this.activeUser;
+        user.products.push({
+            name: product.name,
+            description: product.description
+        });
+
+        this.products.splice(productIndex, 1);
         this.saveProducts();
         this.saveUsers();
         
