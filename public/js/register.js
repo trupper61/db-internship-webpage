@@ -1,6 +1,6 @@
 // register.js
-import User from "../../server/class/user.js";
-import System from "../../server/class/system.js";
+import User from "../../logic/class/user.js";
+import System from "../../logic/class/system.js";
 
 let sys = new System();
 

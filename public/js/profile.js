@@ -1,4 +1,4 @@
-import System from "../../server/class/system.js";
+import System from "../../logic/class/system.js";
 
 // Profile
 const sys = new System();

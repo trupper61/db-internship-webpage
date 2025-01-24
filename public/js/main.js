@@ -1,8 +1,8 @@
-import User from '../../server/class/user.js';
-import Admin from '../../server/class/admin.js';
-import System from '../../server/class/system.js';
-import Storage from '../../server/storage.js';
-import Product from '../../server/class/product.js';
+import User from '../../logic/class/user.js';
+import Admin from '../../logic/class/admin.js';
+import System from '../../logic/class/system.js';
+import Storage from '../../logic/storage.js';
+import Product from '../../logic/class/product.js';
 
 //window.localStorage.clear();
 

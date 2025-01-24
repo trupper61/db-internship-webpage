@@ -1,5 +1,5 @@
-import System from "../../server/class/system.js";
-import Product from "../../server/class/product.js";
+import System from "../../logic/class/system.js";
+import Product from "../../logic/class/product.js";
 
 const container = document.getElementById('container');
 const uploadForm = document.getElementById('product-upload-form')
